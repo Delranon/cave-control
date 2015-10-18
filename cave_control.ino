@@ -1,35 +1,27 @@
-/*********************************** INFO **************************************\
+/*********************************** LICENCE **********************************\
 | 16 Button TTP229-LSF TouchPanel schaltet 12 Relais (10A 240V)für die          |
 | Beleuchtung. Taste 1 - 12 die einzelnen Relais, 13 alles ein - mit 2 Sekunden |
 | Last Verzögerung - Taste 16 alles aus - auch mit 2 Sekunden Last-Verzögerung  |
-| MFRC522 RFID Modul                                                            |
+| MFRC522 RFID Modul
 \******************************************************************************/
 /*********************************** CIRCUIT **********************************\
-| TouchPanel:                                                                   |
-| VCC           5V                                                              |
-| SCL           Pin 3                                                           |
-| SDO           Pin 2                                                           |
-|                                                                               |
-| Relais:                                                                       |
-| VCC           5V                                                              |
-| Relais        Pin Pin 22 - Pin 45                                             |
-|                                                                               |
-| RFID                                                                          |
-| VCC          3.3 V 
-| RST/Reset    Pin 5
-| SPI SS       Pin 53     
-| SPI MOSI     Pin 51       
-| SPI MISO     Pin 50      
-| SPI SCK      Pin 52  
+| TTP229:
+| VCC           5V
+| SCL           Pin 2
+| SDO           Pin 3
+| Relais:
+| VCC           5V
+| Relais        Pin Pin 22 - Pin 33
+
 \******************************************************************************/
 
 #include <TTP229.h>
+
 
 const int SCL_PIN = 3;  // The pin number of the clock pin.
 const int SDO_PIN = 2;  // The pin number of the data pin.
 
 TTP229 ttp229(SCL_PIN, SDO_PIN); // TTP229(sclPin, sdoPin)
-
 
 int Relais1 = 22;
 int Relais2 = 24;
@@ -61,6 +53,7 @@ int Relais12State = 0;
 void setup() {
 
   Serial.begin(115200);
+  Serial.println("Debug Serial!");
 
 pinMode(Relais1, OUTPUT);
 pinMode(Relais2, OUTPUT);
@@ -95,10 +88,9 @@ digitalWrite(Relais12, HIGH);
 
 }
 
-void loop() 
-{
+void loop() {
 
-  uint8_t key = ttp229.ReadKey16();
+uint8_t key = ttp229.ReadKey16();
   if (key) 
   {
    //Serial.println(key);
@@ -215,8 +207,7 @@ void loop()
   if (key == 16) 
        { alloff();    }
   }
-
-
+  
 }
 
 void allon()
