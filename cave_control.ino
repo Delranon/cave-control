@@ -2,25 +2,18 @@
 | 16 Button TTP229-LSF TouchPanel schaltet 12 Relais (10A 240V)für die          |
 | Beleuchtung. Taste 1 - 12 die einzelnen Relais, 13 alles ein - mit 2 Sekunden |
 | Last Verzögerung - Taste 16 alles aus - auch mit 2 Sekunden Last-Verzögerung  |
-| MFRC522 RFID Modul                                                            |
 \******************************************************************************/
 /*********************************** CIRCUIT **********************************\
 | TouchPanel:                                                                   |
 | VCC           5V                                                              |
 | SCL           Pin 3                                                           |
 | SDO           Pin 2                                                           |
+| Library:      https://github.com/arduino12/ttp229-arduino                     |
 |                                                                               |
 | Relais:                                                                       |
 | VCC           5V                                                              |
 | Relais        Pin Pin 22 - Pin 45                                             |
 |                                                                               |
-| RFID                                                                          |
-| VCC          3.3 V 
-| RST/Reset    Pin 5
-| SPI SS       Pin 53     
-| SPI MOSI     Pin 51       
-| SPI MISO     Pin 50      
-| SPI SCK      Pin 52  
 \******************************************************************************/
 
 #include <TTP229.h>
