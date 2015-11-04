@@ -34,7 +34,7 @@
 #define CHILD_ID_HUM 0
 #define CHILD_ID_TEMP 1
 #define HUMIDITY_SENSOR_DIGITAL_PIN 3
-unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds) 1800000
+unsigned long SLEEP_TIME = 1800000; // Sleep time between reads (in milliseconds) (30000 = 30 sec / 1800000 = 30 min) 
 int BATTERY_SENSE_PIN = A0;  // select the input pin for the battery sense point
 int oldBatteryPcnt = 0;
 
