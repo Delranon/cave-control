@@ -71,11 +71,11 @@ digitalWrite(Relais3, HIGH);
 digitalWrite(Relais4, HIGH);
 
 digitalWrite(Relais5, HIGH);
-digitalWrite(Relais6, HIGH);
-digitalWrite(Relais7, HIGH);
-digitalWrite(Relais8, HIGH);
+digitalWrite(Relais6, LOW);
+digitalWrite(Relais7, LOW);
+digitalWrite(Relais8, LOW);
 
-digitalWrite(Relais9, HIGH);
+digitalWrite(Relais9, LOW);
 }
 
 void loop() 
@@ -113,7 +113,7 @@ void loop()
         }
       }
    if (key == 4)
-        { workshopoff(1000);    }
+        { workshopoff(500);    }
    if (key == 5)
       { if (Relais1State == 0)
         { digitalWrite(Relais1, LOW);
@@ -133,47 +133,47 @@ void loop()
         }
       }
      if (key == 8)
-        { pclightoff(1000);    }
+        { pclightoff(500);    }
    if (key == 9)
       { if (Relais6State == 0)
-        { digitalWrite(Relais6, LOW);
+        { digitalWrite(Relais6, HIGH);
           Relais6State = 1;
         } else
-        { digitalWrite(Relais6, HIGH);
+        { digitalWrite(Relais6, LOW);
           Relais6State = 0;
         }
       }
    if (key == 10)
        { if (Relais7State == 0)
-        { digitalWrite(Relais7, LOW);
+        { digitalWrite(Relais7, HIGH);
           Relais7State = 1;
         } else
-        { digitalWrite(Relais7, HIGH);
+        { digitalWrite(Relais7, LOW);
           Relais7State = 0;
         }
        }
    if (key == 11)
        { if (Relais8State == 0)
-         { digitalWrite(Relais8, LOW);
+         { digitalWrite(Relais8, HIGH);
            Relais8State = 1;
          } else
-         { digitalWrite(Relais8, HIGH);
+         { digitalWrite(Relais8, LOW);
            Relais8State = 0;
          }
        }
    if (key == 12)
        { if (Relais9State == 0)
-        { digitalWrite(Relais9, LOW);
+        { digitalWrite(Relais9, HIGH);
           Relais9State = 1;
         } else
-        { digitalWrite(Relais9, HIGH);
+        { digitalWrite(Relais9, LOW);
           Relais9State = 0;
         }
        }
    if (key == 13)
-       { allon(2000);    }
+       { allon(1000);    }
    if (key == 16)
-      { alloff(1000);    }
+      { alloff(500);    }
   }
 }
 
@@ -202,29 +202,26 @@ void allon(int pause)
 {
   digitalWrite(Relais1, LOW);
   Relais1State = 1;
-  delay(pause);
+    delay(pause);
   digitalWrite(Relais2, LOW);
   Relais2State = 1;
-  delay(pause);
+    delay(pause);
   digitalWrite(Relais3, LOW);
   Relais3State = 1;
-  delay(pause);
+  digitalWrite(Relais6, HIGH);
+  Relais6State = 1;
+    delay(pause);
   digitalWrite(Relais4, LOW);
   Relais4State = 1;
+  digitalWrite(Relais7, HIGH);
+  Relais7State = 1;
   delay(pause);
   digitalWrite(Relais5, LOW);
   Relais5State = 1;
-  delay(pause);
-  digitalWrite(Relais6, LOW);
-  Relais6State = 1;
-  delay(pause);
-  digitalWrite(Relais7, LOW);
-  Relais7State = 1;
-  delay(pause);
-  digitalWrite(Relais8, LOW);
+  digitalWrite(Relais8, HIGH);
   Relais8State = 1;
-  delay(pause);
-  digitalWrite(Relais9, LOW);
+    delay(pause);
+  digitalWrite(Relais9, HIGH);
   Relais9State = 1;
 }
 
@@ -245,15 +242,15 @@ void alloff(int pause)
   digitalWrite(Relais5, HIGH);
   Relais5State = 0;
   delay(pause);
-  digitalWrite(Relais6, HIGH);
+  digitalWrite(Relais6, LOW);
   Relais6State = 0;
   delay(pause);
-  digitalWrite(Relais7, HIGH);
+  digitalWrite(Relais7, LOW);
   Relais7State = 0;
   delay(pause);
-  digitalWrite(Relais8, HIGH);
+  digitalWrite(Relais8, LOW);
   Relais8State = 0;
   delay(pause);
-  digitalWrite(Relais9, HIGH);
+  digitalWrite(Relais9, LOW);
   Relais9State = 0;
 }
